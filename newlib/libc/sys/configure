@@ -786,6 +786,7 @@ LIBS
 CPPFLAGS
 CPP'
 ac_subdirs_all='a29khif
+ccproc
 arm
 d10v
 decstation
@@ -11806,6 +11807,8 @@ if test -n "${sys_dir}"; then
 	a29khif)
 
 subdirs="$subdirs a29khif"
+ ;;
+	ccproc) subdirs="$subdirs ccproc"
  ;;
 	arm) subdirs="$subdirs arm"
  ;;

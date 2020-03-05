@@ -137,6 +137,10 @@
 #define __ATTRIBUTE_IMPURE_PTR__ __attribute__((__section__(".sdata")))
 #endif
 
+#if defined(_MIPS_ARCH_CCPROC) && !defined(__DYNAMIC_REENT__)
+#define __DYNAMIC_REENT__ 1
+#endif
+
 #ifdef __xstormy16__
 #define __SMALL_BITFIELDS
 #undef INT_MAX
