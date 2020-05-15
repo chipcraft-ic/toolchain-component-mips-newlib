@@ -1,7 +1,5 @@
 #include <assert.h>
 #include <errno.h>
-#undef errno
-extern int errno;
 #include <reent.h>
 #include <sys/stat.h>
 #include <sys/times.h>
