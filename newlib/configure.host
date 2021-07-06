@@ -828,6 +828,12 @@ newlib_cflags="${newlib_cflags} -DCLOCK_PROVIDED -DMALLOC_PROVIDED -DEXIT_PROVID
 	default_newlib_io_long_long="yes"
 	newlib_cflags="${newlib_cflags} -DMISSING_SYSCALL_NAMES"
 	;;
+  mips*-cc-elf*)
+    syscall_dir=syscalls
+    sys_dir=ccproc
+    have_crt0="no"
+    newlib_cflags="${newlib_cflags} -DREENTRANT_SYSCALLS_PROVIDED -DNO_UNALIGNED_LOADSTORE"
+    ;;
   mips*-*-elf*)
 	default_newlib_io_long_long="yes"
 	newlib_cflags="${newlib_cflags} -DMISSING_SYSCALL_NAMES"

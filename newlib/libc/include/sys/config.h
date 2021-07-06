@@ -40,7 +40,7 @@
 
 #if (defined(__CR16__) || defined(__CR16C__) ||defined(__CR16CP__))
 #ifndef __INT32__
-#define __SMALL_BITFIELDS      
+#define __SMALL_BITFIELDS
 #undef INT_MAX
 #undef UINT_MAX
 #define INT_MAX 32767
@@ -139,6 +139,10 @@
 
 #if defined(__mips__) && !defined(__rtems__)
 #define __ATTRIBUTE_IMPURE_PTR__ __attribute__((__section__(".sdata")))
+#endif
+
+#if defined(_MIPS_ARCH_CCPROC) && !defined(__DYNAMIC_REENT__)
+#define __DYNAMIC_REENT__ 1
 #endif
 
 #ifdef __xstormy16__

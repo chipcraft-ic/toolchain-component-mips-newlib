@@ -789,6 +789,7 @@ CPP'
 ac_subdirs_all='a29khif
 amdgcn
 arm
+ccproc
 d10v
 decstation
 epiphany
@@ -11829,6 +11830,8 @@ subdirs="$subdirs a29khif"
 	amdgcn) subdirs="$subdirs amdgcn"
  ;;
 	arm) subdirs="$subdirs arm"
+ ;;
+	ccproc) subdirs="$subdirs ccproc"
  ;;
 	d10v) subdirs="$subdirs d10v"
  ;;

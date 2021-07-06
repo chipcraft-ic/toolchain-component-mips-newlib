@@ -25,6 +25,7 @@ if test -n "${sys_dir}"; then
 	a29khif) AC_CONFIG_SUBDIRS(a29khif) ;;
 	amdgcn) AC_CONFIG_SUBDIRS(amdgcn) ;;
 	arm) AC_CONFIG_SUBDIRS(arm) ;;
+	ccproc) AC_CONFIG_SUBDIRS(ccproc) ;;
 	d10v) AC_CONFIG_SUBDIRS(d10v) ;;
 	decstation) AC_CONFIG_SUBDIRS(decstation) ;;
 	epiphany) AC_CONFIG_SUBDIRS(epiphany) ;;
