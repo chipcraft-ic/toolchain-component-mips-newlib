@@ -55,17 +55,18 @@ QUICKREF
 /* Threshhold for punting to the byte copier.  */
 #define TOO_SMALL(LEN)  ((LEN) < BIGBLOCKSIZE)
 
-_PTR
-_DEFUN (memcpy, (dst0, src0, len0),
-      _PTR dst0 _AND
-      _CONST _PTR src0 _AND
-      size_t len0)
+void *
+memcpy(
+    void * dst0,
+    const void * src0,
+    size_t len0
+)
 {
 #if defined(PREFER_SIZE_OVER_SPEED) || defined(__OPTIMIZE_SIZE__) || defined(__mips16)
   char *dst = (char *) dst0;
   char *src = (char *) src0;
 
-  _PTR save = dst0;
+  void * save = dst0;
 
   while (len0--)
     {
@@ -75,9 +76,9 @@ _DEFUN (memcpy, (dst0, src0, len0),
   return save;
 #else
   char *dst = dst0;
-  _CONST char *src = src0;
+  const char *src = src0;
   wordtype *aligned_dst;
-  _CONST wordtype *aligned_src;
+  const wordtype *aligned_src;
   int   len =  len0;
   size_t iter;
 
