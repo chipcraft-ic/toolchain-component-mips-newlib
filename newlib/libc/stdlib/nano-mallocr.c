@@ -335,6 +335,20 @@ void * nano_malloc(RARG malloc_size_t s)
                {
                    p->size += alloc_size;
                    r = p;
+                   /* Remove item from free list. We know it's the last item */
+                   if (free_list == r)
+                   {
+                       free_list = NULL;
+                   }
+                   else
+                   {
+                        p = free_list;
+                        while (r != p->next)
+                        {
+                            p = p->next;
+                        }
+                        p->next = NULL;
+                   }
                }
                else
                {
@@ -405,6 +419,7 @@ void nano_free (RARG void * free_p)
     if (free_p == NULL) return;
 
     p_to_free = get_chunk_from_ptr(free_p);
+    p_to_free->next = NULL;
 
     MALLOC_LOCK;
     if (free_list == NULL)
